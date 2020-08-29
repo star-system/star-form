@@ -1,10 +1,13 @@
 {
-  "name": "form",
-  "version": "1.0.0",
+  "name": "@star-js/form",
+  "version": "0.0.1",
   "description": "Made with create-react-library",
   "author": "vonwao",
   "license": "MIT",
-  "repository": "vonwao/form",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vonwao/form.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -50,5 +53,18 @@
   },
   "files": [
     "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/vonwao/form/issues"
+  },
+  "homepage": "https://github.com/vonwao/form#readme",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+  },
+  "keywords": [
+    "form",
+    "react"
   ]
 }
