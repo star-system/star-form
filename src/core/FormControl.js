@@ -58,7 +58,7 @@ export const FormControl = ({
           return oldErrors
         })
       }
-      onChangeValue(e.target.value)
+      onChangeValue && onChangeValue(e.target.value)
     }
 
     // @ts-ignore
