@@ -2,7 +2,7 @@ import React from 'react'
 import { fields, options } from './schema'
 import { useForm, FormContext, AutoForm } from '@star-js/form'
 import { ThemeProvider } from 'emotion-theming'
-import { theme } from '@chakra-ui/core'
+import { theme, Flex } from '@chakra-ui/core'
 
 const App = () => {
   // 1: Initialize form with hook
@@ -29,8 +29,10 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <FormContext.Provider value={autoForm}>
-        <AutoForm fields={fields} options={options} />
-        {/*<AutoFormButtons.SaveButton onSave={save}/>*/}
+        <Flex p={5}>
+          <AutoForm fields={fields} options={options} />
+          {/*<AutoFormButtons.SaveButton onSave={save}/>*/}
+        </Flex>
       </FormContext.Provider>
     </ThemeProvider>
   )
