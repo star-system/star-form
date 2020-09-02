@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Select, Text } from '@chakra-ui/core'
+// import { Input, Select, Text } from '@chakra-ui/core'
 import { useFormContext } from './FormContext'
 
 export const FormControl = ({
@@ -26,13 +26,17 @@ export const FormControl = ({
       // @ts-ignore
       errors,
       // @ts-ignore
-      setErrors
+      setErrors,
+      editing,
+      controlMap
     } = useFormContext()
 
     const onChangeImpl = (e) => {
-      // console.log({ ...form, [item.name]: e.target.value });
+      console.log('asdfasdf--------')
+      console.log({ ...form, [item.name]: e.target.value })
       setForm({ ...form, [item.name]: e.target.value })
       // formDispatch({ type: 'SET_VALUE', name: item.name, value: e.target.value });
+
       // @ts-ignore
       const failRequiredValidation = item.required && !e.target.value
       const failValidation =
@@ -61,48 +65,32 @@ export const FormControl = ({
       onChangeValue && onChangeValue(e.target.value)
     }
 
-    // @ts-ignore
-    const { editing } = useFormContext()
+    const controlType = item.type || 'input'
+    const ControlComponent = controlMap[controlType]
+    if (!ControlComponent) {
+      console.error('no control component found for type: ', item.type)
+    }
+    const ErrorTextComp = controlMap.errorMsg
+    const DisplayValueComp = controlMap.displayValue
+
+    console.log('form now', form)
     return editing ? (
       <div>
-        {item.optionsKey ? (
-          <Select
-            // key={item.name}
-            placeholder='Select...'
-            onChange={onChangeImpl}
-            value={form[item.name]}
-          >
-            {options &&
-              options[item.optionsKey] &&
-              options[item.optionsKey].map((option) => {
-                const label = option.label || option.value
-                return (
-                  <option value={option.value} key={option.value}>
-                    {label}
-                  </option>
-                )
-              })}
-          </Select>
-        ) : (
-          <Input
-            // key={item.name}
-            // placeholder={value}
-            onChange={onChangeImpl}
-            value={form[item.name]}
-            // name={item.name}
-            // ref={register({ required: true })}
-          />
-        )}
-        <Text color='red.500'>{errors[item.name]}</Text>
+        <ControlComponent
+          value={form[item.name]}
+          onChange={onChangeImpl}
+          optionItems={options && options[item.optionsKey]}
+        />
+        <ErrorTextComp>{errors[item.name]}</ErrorTextComp>
       </div>
     ) : (
-      <Text my={2}>
+      <DisplayValueComp>
         {item.optionsKey // && options && options[item.optionsKey]
           ? options &&
             options[item.optionsKey].find(
               (opt) => opt.value === form[item.name]
             )?.label
           : form[item.name]}
-      </Text>
+      </DisplayValueComp>
     )
   }

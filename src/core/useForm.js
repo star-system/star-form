@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import defaultComponentMap from '../control-maps/defaultComponentMap'
 
 //ts
 // const attributeArrayToFormObject = (array: []) => {
@@ -18,11 +19,13 @@ const attributeArrayToFormObject = (array) => {
 }
 
 export function useForm({
-                             isEditing = false,
-                             fields = [],
-                             values = {},
-                             validation = {}
-                           }) {
+  isEditing = false,
+  fields = [],
+  values = {},
+  validation = {},
+  controlMap = defaultComponentMap
+}) {
+  console.log('useForm init')
   const initFormObj = attributeArrayToFormObject(fields)
   const [editing, setEditingState] = React.useState(isEditing)
   const [form, setForm] = React.useState(initFormObj)
@@ -30,12 +33,12 @@ export function useForm({
   const [errors, setErrors] = React.useState({})
 
   useEffect(() => {
-    // console.log('--- useEffect 1 values', values);
+    console.log('--- useEffect 1 values', values)
     const newForm = Object.keys(form).reduce((obj, item) => {
       obj[item] = values && values[item] // || form[item];
       return obj
     }, {})
-    // console.log('--- useEffect 2 newForm', JSON.stringify(newForm));
+    console.log('--- useEffect 2 newForm', JSON.stringify(newForm))
     if (JSON.stringify(newForm) !== JSON.stringify(form)) {
       // console.log('--- useEffect 3 newForm', newForm);
       setOldForm(newForm)
@@ -61,7 +64,8 @@ export function useForm({
       setErrors,
       oldForm,
       resetForm: () => setForm(oldForm),
-      setSingleValue
+      setSingleValue,
+      controlMap
     }),
     [editing, form]
   )
