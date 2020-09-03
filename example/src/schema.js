@@ -14,26 +14,26 @@ export const fields = [
     name: 'eggs',
     label: 'How many eggs?',
     validation: 'positive'
-  },
-  {
-    name: 'eggs2',
-    fields: [
-      {
-        name: 'quantity'
-      },
-      {
-        name: 'scrambled',
-        type: 'select',
-        optionsKey: 'yes_no_option'
-      }
-    ]
   }
+  // {
+  //   name: 'eggs2',
+  //   fields: [
+  //     {
+  //       name: 'quantity'
+  //     },
+  //     {
+  //       name: 'scrambled',
+  //       type: 'select',
+  //       optionsKey: 'yes_no_option'
+  //     }
+  //   ]
+  // }
 ]
 
 export const options = {
   yes_no_option: [
-    { value: 'yes', label: 'Yes Label' },
-    { value: 'no', label: 'No Label' }
+    { value: true, label: 'Yes' },
+    { value: false, label: 'No' }
   ]
 }
 
