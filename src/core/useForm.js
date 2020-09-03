@@ -44,7 +44,7 @@ export function useForm({
       setOldForm(newForm)
       setForm(newForm)
     }
-  }, [values])
+  }, [])
 
   const setEditing = React.useCallback((newVal) => setEditingState(newVal), [])
   const setSingleValue = (key, newVal) => {

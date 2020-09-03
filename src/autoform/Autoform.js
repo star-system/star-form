@@ -27,7 +27,6 @@ function BoxFieldComponent({ field, options }) {
 function AutoForm({ fields, fieldComponent, options }) {
   return (
     <div>
-      TESTSETESTETSETSET
       {fields.map((field) => {
         const Comp = fieldComponent || BoxFieldComponent
         return <Comp key={field.name} field={field} options={options} />
