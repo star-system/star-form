@@ -24,7 +24,8 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "jest": "jest"
   },
   "peerDependencies": {
     "@chakra-ui/core": "^0.8.0",
@@ -61,7 +62,10 @@
   "directories": {
     "example": "example"
   },
-  "dependencies": {},
+  "dependencies": {
+    "object-resolve-path": "^1.1.1",
+    "recoil": "0.0.10"
+  },
   "keywords": [
     "form",
     "react"

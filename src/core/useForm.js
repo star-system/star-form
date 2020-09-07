@@ -13,9 +13,26 @@ import defaultComponentMap from '../control-maps/defaultComponentMap'
 const attributeArrayToFormObject = (array) => {
   return array.reduce((obj, item) => {
     // eslint-disable-line no-param-reassign
-    obj[item.name] = item.defaultValue
+    if (item.fields) {
+      const subform = attributeArrayToFormObject(item.fields)
+      obj[item.name] = subform
+    } else {
+      obj[item.name] = item.defaultValue
+    }
     return obj
   }, {})
+}
+
+export function annotateFields(arr, prefix) {
+  prefix = prefix ? prefix + '.' : ''
+  return arr.map((item) => {
+    if (item.fields) {
+      const newFields = annotateFields(prefix + item.name)
+      return { ...item, fields: newFields }
+    } else {
+      return item
+    }
+  })
 }
 
 export function useForm({
@@ -27,6 +44,7 @@ export function useForm({
 }) {
   console.log('useForm init')
   const initFormObj = attributeArrayToFormObject(fields)
+  console.log('initFormObj', initFormObj)
   const [editing, setEditingState] = React.useState(isEditing)
   const [form, setForm] = React.useState(initFormObj)
   const [oldForm, setOldForm] = React.useState(initFormObj)
