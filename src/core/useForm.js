@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import defaultComponentMap from '../control-maps/defaultComponentMap'
+import defaultComponentMap from '../component-maps/chakraComponentMap'
+import materialUiComponentMap from '../component-maps/materialUiComponentMap'
 
 //ts
 // const attributeArrayToFormObject = (array: []) => {
@@ -40,7 +41,7 @@ export function useForm({
   fields = [],
   values = {},
   validation = {},
-  controlMap = defaultComponentMap
+  controlMap = materialUiComponentMap
 }) {
   console.log('useForm init')
   const initFormObj = attributeArrayToFormObject(fields)
@@ -56,6 +57,8 @@ export function useForm({
       obj[item] = values && values[item] // || form[item];
       return obj
     }, {})
+    // recoil state
+    fields.forEach((fiield) => {})
     console.log('--- useEffect 2 newForm', JSON.stringify(newForm))
     if (JSON.stringify(newForm) !== JSON.stringify(form)) {
       // console.log('--- useEffect 3 newForm', newForm);

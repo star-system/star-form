@@ -32,8 +32,8 @@ export const FormControl = ({
     } = useFormContext()
 
     const onChangeImpl = (e) => {
-      console.log('asdfasdf--------')
-      console.log({ ...form, [item.name]: e.target.value })
+      console.log('onChangeImpl', e.target)
+      // console.log({ ...form, [item.name]: e.target.value })
       setForm({ ...form, [item.name]: e.target.value })
       // formDispatch({ type: 'SET_VALUE', name: item.name, value: e.target.value });
 
@@ -77,6 +77,7 @@ export const FormControl = ({
     return editing ? (
       <div>
         <ControlComponent
+          // value={form[item.name] || ''}
           value={form[item.name]}
           onChange={onChangeImpl}
           optionItems={options && options[item.optionsKey]}
