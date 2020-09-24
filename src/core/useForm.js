@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import defaultComponentMap from '../component-maps/chakraComponentMap'
-* // import materialUiComponentMap from '../component-maps/materialUiComponentMap'
 
 //ts
 // const attributeArrayToFormObject = (array: []) => {
