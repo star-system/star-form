@@ -73,7 +73,7 @@ export const FormControl = ({
     const ErrorTextComp = controlMap.errorMsg
     const DisplayValueComp = controlMap.displayValue
 
-    console.log('form now', form)
+    // console.log('form now', form)
     return editing ? (
       <div>
         <ControlComponent
