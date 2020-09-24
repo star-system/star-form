@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import defaultComponentMap from '../component-maps/chakraComponentMap'
-import materialUiComponentMap from '../component-maps/materialUiComponentMap'
+* // import materialUiComponentMap from '../component-maps/materialUiComponentMap'
 
 //ts
 // const attributeArrayToFormObject = (array: []) => {
@@ -41,7 +41,8 @@ export function useForm({
   fields = [],
   values = {},
   validation = {},
-  controlMap = materialUiComponentMap
+  optionsMap = {},
+  controlMap //= materialUiComponentMap
 }) {
   console.log('useForm init')
   const initFormObj = attributeArrayToFormObject(fields)
@@ -86,7 +87,8 @@ export function useForm({
       oldForm,
       resetForm: () => setForm(oldForm),
       setSingleValue,
-      controlMap
+      controlMap,
+      optionsMap
     }),
     [editing, form]
   )

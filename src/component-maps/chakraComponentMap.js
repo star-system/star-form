@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Box,
   Input,
   Select,
   Text,
@@ -8,6 +9,7 @@ import {
   CheckboxGroup,
   Checkbox
 } from '@chakra-ui/core'
+import { FormControl } from '..'
 
 export const ChakraSelectControl = ({ value, onChange, optionItems }) => {
   return (
@@ -61,6 +63,19 @@ function ChakraCheckboxGroup({ value, onChange, optionItems }) {
   )
 }
 
+function ChakraFieldComponent({ field, options, children }) {
+  return (
+    <Box>
+      <Box fontWeight='medium' my={2}>
+        {/*{requiredMarker}*/}
+        {field.label || field.name}:
+      </Box>
+      {/*{children}*/}
+      <FormControl item={field} options={options} />
+    </Box>
+  )
+}
+
 export const ChakraErrorMsg = ({ children }) => {
   return <Text color='red.500'>{children}</Text>
 }
@@ -70,6 +85,7 @@ export const ChakraDisplayValue = ({ children }) => {
 }
 
 export default {
+  field: ChakraFieldComponent,
   displayValue: ChakraDisplayValue,
   errorMsg: ChakraErrorMsg,
   input: Input,
