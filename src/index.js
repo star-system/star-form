@@ -5,6 +5,7 @@ import AutoForm from './autoform/Autoform'
 
 import chakraComponentMap from './component-maps/chakraComponentMap'
 import materialUiComponentMap from './component-maps/materialUiComponentMap'
+import antdComponentMap from './component-map-antd'
 
 export {
   FormContext,
@@ -13,5 +14,6 @@ export {
   useForm,
   AutoForm,
   chakraComponentMap,
-  materialUiComponentMap
+  materialUiComponentMap,
+  antdComponentMap
 }

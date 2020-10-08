@@ -25,6 +25,10 @@ class Example extends Component {
 }
 ```
 
+###Other Form Resources
+
+https://medium.com/better-programming/the-complete-guide-to-forms-in-react-d2ba93f32825
+
 ## License
 
 MIT © [vonwao](https://github.com/vonwao)
