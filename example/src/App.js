@@ -4,11 +4,14 @@ import {
   useForm,
   FormContext,
   AutoForm,
-  chakraComponentMap
+  chakraComponentMap,
+  antdComponentMap
 } from '@star-js/form'
 import { ThemeProvider } from 'emotion-theming'
 import { theme, Flex, Box, Button } from '@chakra-ui/core'
 import { SaveButton } from './SaveButton'
+
+import 'antd/dist/antd.css'
 
 const App = () => {
   // 1: Initialize form with hook
@@ -18,7 +21,7 @@ const App = () => {
     validation,
     values: {},
     optionsMap: options,
-    controlMap: chakraComponentMap
+    controlMap: antdComponentMap
   })
 
   // const { form } = autoForm
