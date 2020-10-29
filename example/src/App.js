@@ -6,11 +6,15 @@ import {
   AutoForm,
   // antdComponentMap,
   // materialUiComponentMap,
-  chakraComponentMap
+  // chakraComponentMap
 } from '@star-js/form'
-import { ThemeProvider } from 'emotion-theming'
-import { theme, Flex, Box, Button } from '@chakra-ui/core'
+import antdComponentMap from '@star-js/form-antd'
+// import chakraComponentMap from '@star-js/form-chakra-ui'
+// import { ThemeProvider } from 'emotion-theming'
+// import { theme, Flex, Box, Button } from '@chakra-ui/core'
 import { SaveButton } from './SaveButton'
+
+import 'antd/dist/antd.css';
 
 const App = () => {
   // 1: Initialize form with hook
@@ -20,7 +24,7 @@ const App = () => {
     validation,
     values: {},
     optionsMap: options,
-    controlMap: chakraComponentMap
+    controlMap: antdComponentMap
   })
 
   // const { form } = autoForm
@@ -31,19 +35,30 @@ const App = () => {
     console.log('SAVE form ', form)
   }
 
+  // return (
+  //   <ThemeProvider theme={theme}>
+  //     <FormContext.Provider value={autoForm}>
+  //       <Flex p={5}>
+  //         <Box>
+  //           <AutoForm fields={fields} options={options} />
+  //           <SaveButton onSave={save} />
+  //           {/*<Button onClick={save}>Submit</Button>*/}
+  //           <pre>{JSON.stringify(autoForm.form)}</pre>
+  //         </Box>
+  //       </Flex>
+  //     </FormContext.Provider>
+  //   </ThemeProvider>
+  // )
+
   return (
-    <ThemeProvider theme={theme}>
+    <div>
       <FormContext.Provider value={autoForm}>
-        <Flex p={5}>
-          <Box>
-            <AutoForm fields={fields} options={options} />
-            <SaveButton onSave={save} />
+    <AutoForm fields={fields} options={options} />
+            {/*<SaveButton onSave={save} />*/}
             {/*<Button onClick={save}>Submit</Button>*/}
             <pre>{JSON.stringify(autoForm.form)}</pre>
-          </Box>
-        </Flex>
-      </FormContext.Provider>
-    </ThemeProvider>
+    </FormContext.Provider>
+    </div>
   )
 }
 
