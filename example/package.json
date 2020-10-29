@@ -4,22 +4,23 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
-    "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
-    "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    "build-size": "npm run build && ls -l build/static/js/*.js",
+    "start": "node ../packages/form/node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "node ../packages/form/node_modules/react-scripts/bin/react-scripts.js build",
+    "test": "node ../packages/form/node_modules/react-scripts/bin/react-scripts.js test",
+    "eject": "node ../packages/form/node_modules/react-scripts/bin/react-scripts.js eject"
   },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "@material-ui/core": "^4.11.0",
-    "@star-js/form": "file:..",
+    "@star-js/form": "file:../packages/form/",
     "antd": "^4.6.6",
     "emotion-theming": "^10.0.27",
-    "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom",
-    "react-scripts": "file:../node_modules/react-scripts",
+    "react": "file:../packages/form/node_modules/react",
+    "react-dom": "file:../packages/form/node_modules/react-dom",
+    "react-scripts": "file:../packages/form/node_modules/react-scripts",
     "recoil": "0.0.13"
   },
   "devDependencies": {

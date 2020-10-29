@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFormContext } from '..'
+import { useFormContext } from '../index'
 
 // export const getLabel = (item) => {
 //   const words =

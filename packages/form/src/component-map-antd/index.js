@@ -11,7 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 // import FormLabel from '@material-ui/core/FormLabel'
 
 import { Input, Radio, Select } from 'antd'
-import { FormControl } from '..'
+import { FormControl } from '../index'
 
 const { Option } = Select
 

@@ -9,7 +9,7 @@ import {
   CheckboxGroup,
   Checkbox
 } from '@chakra-ui/core'
-import { FormControl } from '..'
+import { FormControl } from '../index'
 
 export const ChakraSelectControl = ({ value, onChange, optionItems }) => {
   return (

@@ -15,17 +15,17 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build",
-    "jest": "jest"
+    "build": "node_modules/.bin/microbundle-crl --no-compress --format modern,cjs",
+    "start": "node_modules/.bin/microbundle-crl watch --no-compress --format modern,cjs",
+    "prepare": "node_modules/.bin/run-s build",
+    "test": "node_modules/.bin/run-s test:unit test:lint test:build",
+    "test:build": "node_modules/.bin/run-s build",
+    "test:lint": "node_modules/.bin/eslint .",
+    "test:unit": "node_modules/.bin/cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "node_modules/.bin/react-scripts test --env=jsdom",
+    "predeploy": "cd ../../example && yarn install && yarn run build",
+    "deploy": "node_modules/.bin/gh-pages -d ../../example/build",
+    "jest": "node_modules/.bin/jest"
   },
   "peerDependencies": {
     "antd": "^4.6.6",
@@ -55,14 +55,14 @@
     "react-scripts": "^3.4.1"
   },
   "files": [
-    "dist"
+    "../../dist"
   ],
   "bugs": {
     "url": "https://github.com/vonwao/form/issues"
   },
   "homepage": "https://github.com/vonwao/form#readme",
   "directories": {
-    "example": "example"
+    "example": "../../example"
   },
   "dependencies": {
     "object-resolve-path": "^1.1.1",
