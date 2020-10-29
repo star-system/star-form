@@ -3,9 +3,9 @@ import { FormControl } from './core/FormControl'
 import { useForm } from './core/useForm'
 import AutoForm from './autoform/Autoform'
 
-import chakraComponentMap from './component-maps/chakraComponentMap'
-import materialUiComponentMap from './component-maps/materialUiComponentMap'
-import antdComponentMap from './component-map-antd'
+// import chakraComponentMap from './component-maps/chakraComponentMap'
+// import materialUiComponentMap from './component-maps/materialUiComponentMap'
+// import antdComponentMap from '../../form-antd/src'
 
 export {
   FormContext,
@@ -13,7 +13,7 @@ export {
   FormControl,
   useForm,
   AutoForm,
-  chakraComponentMap,
-  materialUiComponentMap,
-  antdComponentMap
+  // chakraComponentMap,
+  // materialUiComponentMap,
+  // antdComponentMap
 }
