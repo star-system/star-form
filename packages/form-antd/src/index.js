@@ -1,17 +1,6 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-// import FormHelperText from '@material-ui/core/FormHelperText'
-// import Select from '@material-ui/core/Select'
-// import Radio from '@material-ui/core/Radio'
-// import RadioGroup from '@material-ui/core/RadioGroup'
-// import FormControlLabel from '@material-ui/core/FormControlLabel'
-// import FormControl from '@material-ui/core/FormControl'
-// import FormLabel from '@material-ui/core/FormLabel'
-
 import { Input, Radio, Select } from 'antd'
-import { FormControl } from '../index'
+import { FormControl } from '@star-js/form'
 
 const { Option } = Select
 
