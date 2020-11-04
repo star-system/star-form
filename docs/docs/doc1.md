@@ -1,7 +1,7 @@
 ---
 id: doc1
 title: Basic Usage
-sidebar_label: Style Guide
+sidebar_label: Basic Usage
 slug: /
 ---
 
