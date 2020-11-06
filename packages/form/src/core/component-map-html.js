@@ -24,7 +24,7 @@ export const SelectControl = ({ value, onChange, optionItems }) => {
 
 function FieldComponent({ field, options, children }) {
   return (
-    <div className='starField'>
+    <div style={{ margin: '10px' }}>
       <div>
         {/*{requiredMarker}*/}
         {field.label || field.name}:
@@ -40,7 +40,7 @@ export const HtmlInput = (props) => {
 }
 
 export const ErrorMsg = ({ children }) => {
-  return <div>{children}</div>
+  return <div style={{ fontColor: 'red' }}>{children}</div>
 }
 
 export const DisplayValue = ({ children }) => {

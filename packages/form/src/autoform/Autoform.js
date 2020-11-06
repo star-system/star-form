@@ -34,11 +34,12 @@ import { useFormContext } from '../index'
 //   )
 // }
 
-function AutoForm({ fields }) {
-  const { optionsMap, controlMap } = useFormContext()
+function AutoForm({ fields: fieldsArg }) {
+  const { optionsMap, controlMap, fields } = useFormContext()
+  fieldsArg = fieldsArg || fields
   return (
     <div>
-      {fields.map((field) => {
+      {fieldsArg.map((field) => {
         const Comp = controlMap.field
         return <Comp key={field.name} field={field} options={optionsMap} />
       })}

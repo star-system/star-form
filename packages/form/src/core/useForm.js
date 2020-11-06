@@ -40,7 +40,7 @@ export function useForm({
   values = {},
   validation = {},
   optionsMap = {},
-  controlMap //= materialUiComponentMap
+  controlMap
 }) {
   console.log('useForm init')
   const initFormObj = attributeArrayToFormObject(fields)
@@ -86,9 +86,10 @@ export function useForm({
       resetForm: () => setForm(oldForm),
       setSingleValue,
       controlMap,
-      optionsMap
+      optionsMap,
+      fields,
     }),
-    [editing, form]
+    [editing, form],
   )
   return value
 }
