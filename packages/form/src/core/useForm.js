@@ -40,7 +40,7 @@ export function useForm({
   values = {},
   validation = {},
   optionsMap = {},
-  controlMap
+  controlMap,
 }) {
   console.log('useForm init')
   const initFormObj = attributeArrayToFormObject(fields)

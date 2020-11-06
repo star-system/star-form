@@ -1,6 +1,7 @@
 import React from 'react'
 import { fields, options, validation } from './schema'
 import {
+  StarForm,
   useForm,
   FormContext,
   AutoForm,
@@ -8,7 +9,7 @@ import {
   // materialUiComponentMap,
   // chakraComponentMap
 } from '@star-js/form'
-import antdComponentMap from '@star-js/form-antd'
+// import antdComponentMap from '@star-js/form-antd'
 // import chakraComponentMap from '@star-js/form-chakra-ui'
 // import { ThemeProvider } from 'emotion-theming'
 // import { theme, Flex, Box, Button } from '@chakra-ui/core'
@@ -50,14 +51,30 @@ const App = () => {
   //   </ThemeProvider>
   // )
 
+  // return (
+  //   <div>
+  //     <FormContext.Provider value={autoForm}>
+  //       <AutoForm fields={fields} options={options} />
+  //       {/*<SaveButton onSave={save} />*/}
+  //       {/*<Button onClick={save}>Submit</Button>*/}
+  //       <pre>{JSON.stringify(autoForm.form)}</pre>
+  //     </FormContext.Provider>
+  //   </div>
+  // )
+
   return (
     <div>
-      <FormContext.Provider value={autoForm}>
+      <StarForm
+        isEditing
+        fields={fields}
+        validatio={validation}
+        // values: {},
+        optionsMap={options}
+        controlMap={htmlComponentMap}
+      >
         <AutoForm fields={fields} options={options} />
-        {/*<SaveButton onSave={save} />*/}
-        {/*<Button onClick={save}>Submit</Button>*/}
         <pre>{JSON.stringify(autoForm.form)}</pre>
-      </FormContext.Provider>
+      </StarForm>
     </div>
   )
 }
